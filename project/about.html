@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff4f0;
+    color: #3a3a3a;
+    line-height: 1.75;
+}
+
+header {
+    background: linear-gradient(90deg, #ff8a65, #ff7043);
+    color: white;
+    padding: 28px 0;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    user-select: none;
+}
+
+header h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+header h1:hover {
+    transform: scale(1.07) rotate(-1deg);
+    cursor: default;
+}
+
+/* Navigation */
+nav a {
+    color: white;
+    margin: 0 16px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    color: #ffe6d9;
+    border-bottom: 2px solid #ffe6d9;
+    outline: none;
+}
+
+/* About Section */
+.about-section {
+    max-width: 960px;
+    margin: 80px auto;
+    background-color: #fff9f6;
+    padding: 54px 48px;
+    border-radius: 20px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.07);
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.6rem;
+    margin-bottom: 30px;
+    color: #ff6b4d;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    line-height: 2;
+    color: #555;
+    margin-bottom: 24px;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-section ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 36px;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-section ul li {
+    font-size: 1.1rem;
+    color: #444;
+    padding-left: 1.7em;
+    position: relative;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.about-section ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #ff6b4d;
+    font-weight: 900;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 16px;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    font-size: 14.5px;
+    margin-top: 80px;
+    border-top: 6px solid #ff8a65;
+    border-radius: 0 0 18px 18px;
+    user-select: none;
+}
+
+footer a {
+    color: #ffbbac;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #fff3ef;
+    outline: none;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .about-section {
+        padding: 40px 20px;
+    }
+
+    nav a {
+        display: block;
+        margin: 12px 0;
+        font-size: 1.1rem;
+    }
+
+    .about-section ul {
+        max-width: 100%;
+        padding-left: 20px;
+    }
+
+    .about-section ul li {
+        font-size: 1rem;
+        padding-left: 1.3em;
+    }
+}
+
+</style>
+
+</head>
+<body>
+    <header>
+        <h1>Maison D&G Store</h1>
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="about.html">About</a>
+            <a href="product.php">Product</a> 
+            <a href="contact.php">Contact</a>
+            <a href="report.php">Report</a>
+        </nav>
+    </header>
+    <section class="about-section" id="about">
+        <h2>About Us</h2>
+<p>
+    <strong>Welcome to Maison D&amp;G – Your Destination for Timeless Fashion and Modern Elegance.</strong>
+</p>
+<p>
+    At <strong>Maison D&amp;G</strong>, we believe that fashion is an art — a way to express confidence, identity, and sophistication. 
+    Our store brings you a handpicked selection of premium fashion from world-renowned brands like 
+    <strong>Dolce &amp; Gabbana</strong>, <strong>Zando</strong>, <strong>Ten11</strong>, and <strong>Routine</strong>, 
+    ensuring that every piece you wear tells a story of style and quality.
+</p>
+<p>
+    Whether you're seeking high-end luxury, everyday essentials, or trendsetting pieces, 
+    <strong>Maison D&amp;G</strong> is designed to meet your fashion needs. We curate our collections with a focus on 
+    <strong>authenticity, craftsmanship, and elegance</strong>, so you can always shop with confidence.
+</p>
+<h3>Why Choose Maison D&amp;G?</h3>
+<ul>
+    <li><strong>Authentic Brands</strong>: 100% original products from trusted fashion labels.</li>
+    <li><strong>Curated Collections</strong>: Stylish selections for every occasion and personality.</li>
+    <li><strong>Customer-Centered Experience</strong>: Smooth shopping, fast delivery, and helpful support.</li>
+    <li><strong>Fashion with Flair</strong>: A blend of timeless elegance and modern edge.</li>
+</ul>
+<p>
+    Let <strong>Maison D&amp;G</strong> be your partner in fashion. Whether you're dressing up for a night out 
+    or building your everyday wardrobe, we're here to make you look and feel your best.
+</p>
+<p>
+    <strong>Step into elegance. Shop Maison D&amp;G.</strong>
+</p>
+
+    </section>
+        <footer>
+    <p>&copy; 2025 Maison D&G Store. All rights reserved.</p>
+    <p>
+        <a href="https://web.facebook.com/lypha009" target="_blank">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a> |
+        <a href="https://www.tiktok.com/@lyphaa20" target="_blank">
+            <i class="fab fa-tiktok"></i> TikTok
+        </a> |
+        <a href="https://www.instagram.com/pha._.phaa" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+        </a> |
+        <a href="https://t.me/phaaphaaphaa" target="_blank">
+            <i class="fab fa-telegram-plane"></i> Telegram
+        </a>
+    </p>
+</footer>
+</body>
+</html>
