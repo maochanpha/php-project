@@ -9,8 +9,6 @@
     <li><a href="positions.php">📋 Positions</a></li>
     <li><a href="payroll.php">💰 Payroll</a></li>
     <li><a href="report.php">📊 Reports</a></li>
-    <li><a href="employee_profile.php">Profile</a></li>
-
     <li><a href="logout.php" class="logout">🚪 Logout</a></li>
 
   </ul>
