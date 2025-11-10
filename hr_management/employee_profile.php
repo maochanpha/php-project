@@ -35,198 +35,142 @@ $depsResult = $deps->get_result();
 <head>
   <title>Employee Profile</title>
   <style>
-    /* === General Page Layout === */
-body {
+    body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: #f5f6fa;
-  color: #2c3e50;
-}
-
-.sidebar {
-  width: 230px;
-  background: #1e293b; /* deep blue */
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f1f5f9;
   display: flex;
-  flex-direction: column;
-  padding: 20px 0;
-  color: white;
-}
-
-.sidebar h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 20px;
-  letter-spacing: 1px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar ul li {
-  margin: 10px 0;
-}
-
-.sidebar ul li a {
-  display: block;
-  padding: 12px 20px;
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
-  font-size: 15px;
-}
-
-.sidebar ul li a:hover,
-.sidebar ul li a.active {
-  background: #2563eb;
-  border-left: 4px solid #93c5fd;
+  min-height: 100vh;
 }
 
 .main {
-  margin-left: 230px; /* leave room for sidebar */
-  padding: 20px;
+  flex: 1;
+  margin-left: 220px;
+  padding: 40px;
+  background: #f8fafc;
 }
 
-section.content {
-  background: #fff;
+.content {
+  background: #ffffff;
+  padding: 30px 40px;
   border-radius: 12px;
-  padding: 25px 30px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* === Headings === */
-h3, h4 {
-  color: #1e3a8a;
-  border-left: 4px solid #1e90ff;
-  padding-left: 10px;
+.content h3 {
+  color: #1e293b;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+}
+
+h4 {
+  color: #334155;
+  margin-top: 40px;
   margin-bottom: 15px;
 }
 
-/* === Employee Profile Card === */
+/* ===== Profile Card ===== */
 .profile-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: #f9fafb;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 25px;
+  max-width: 400px;
   text-align: center;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  padding: 30px 20px;
-  width: 280px;
   margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .profile-card img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 4px solid #3498db;
+  border: 3px solid #2563eb;
   margin-bottom: 15px;
 }
 
 .profile-card h2 {
-  margin: 10px 0 5px;
-  color: #2c3e50;
+  margin: 10px 0;
+  color: #1e293b;
 }
 
 .profile-card p {
-  margin: 4px 0;
-  color: #555;
-  font-size: 15px;
+  color: #475569;
+  font-size: 0.95rem;
 }
 
-/* === Dependents Table === */
+/* ===== Tables ===== */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 30px;
+  margin-top: 15px;
+  background: #ffffff;
 }
 
-table th, table td {
-  padding: 10px 15px;
-  border-bottom: 1px solid #e5e7eb;
+th, td {
+  padding: 10px 14px;
   text-align: left;
-  font-size: 15px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-table th {
-  background: #e8f0fe;
-  color: #1e3a8a;
-  font-weight: 600;
+th {
+  background: #2563eb;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 0.85rem;
 }
 
-table tr:hover {
+tr:hover {
+  background: #f1f5f9;
+}
+
+/* ===== Forms ===== */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   background: #f9fafb;
+  padding: 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
-/* === Buttons === */
-button, .btn {
-  background: #1e90ff;
-  border: none;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover, .btn:hover {
-  background: #0d6efd;
-}
-
-/* === Form Styling === */
-.add-dependent input,
-.add-dependent select,
-form input,
-form select {
+form input, form select {
+  flex: 1 1 180px;
   padding: 8px 10px;
-  margin: 5px 8px 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  width: 160px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s ease;
 }
 
-.add-dependent button {
-  margin-left: 5px;
+form input:focus, form select:focus {
+  border-color: #2563eb;
 }
 
-/* === Action Icons === */
-a {
-  text-decoration: none;
-  font-size: 18px;
-  margin-right: 8px;
+button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-a:hover {
-  opacity: 0.7;
+button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
 }
 
-/* === Responsive === */
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .main {
     margin-left: 0;
-    padding: 15px;
+    padding: 20px;
   }
 
-  .profile-card {
-    width: 100%;
-  }
-
-  table, form {
-    font-size: 13px;
-  }
-
-  input, select, button {
-    width: 100%;
-    margin-bottom: 10px;
+  form {
+    flex-direction: column;
   }
 }
 

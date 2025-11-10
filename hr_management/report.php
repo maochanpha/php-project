@@ -3,8 +3,88 @@
 <html>
 <head>
   <title>HR Reports</title>
-  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f1f5f9;
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  margin-left: 220px;
+  padding: 30px 40px;
+  background: #f8fafc;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.content h3 {
+  color: #1e293b;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+.content h4 {
+  color: #334155;
+  font-size: 1.3rem;
+  margin: 30px 0 15px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-size: 1.1rem;
+  color: #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card b {
+  color: #2563eb;
+  font-size: 1.2rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+canvas {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
 </head>
 <body>
 <?php include 'includes/sidebar.php'; ?>

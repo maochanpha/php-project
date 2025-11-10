@@ -15,49 +15,120 @@ if (!isset($_SESSION['user'])) {
   <title>Departments</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    table {
-      border-collapse: collapse;
-      width: 95%;
-      margin: 20px auto;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    th, td {
-      padding: 10px 12px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #2980b9;
-      color: white;
-    }
-    tr:hover {
-      background-color: #f5f5f5;
-    }
-    .btn {
-      background-color: #3498db;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 5px;
-      text-decoration: none;
-      display: inline-block;
-      margin: 10px 0;
-    }
-    .message {
-      width: 95%;
-      margin: 10px auto;
-      padding: 10px;
-      text-align: center;
-      border-radius: 5px;
-    }
-    .success {
-      background: #d4edda;
-      color: #155724;
-    }
-    .error {
-      background: #f8d7da;
-      color: #721c24;
-    }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f1f5f9;
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  padding: 30px 40px;
+  margin-left: 220px;
+  background: #f8fafc;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.content h3 {
+  color: #1e293b;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+  margin-bottom: 20px;
+  background: #3b82f6;
+  color: #fff;
+}
+
+.btn:hover {
+  background: #2563eb;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+th {
+  background: #3b82f6;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+tr:hover td {
+  background: #f1f5f9;
+}
+
+td a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+.message {
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  display: inline-block;
+}
+
+.message.success {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.message.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 10px 12px;
+  }
+}
+
   </style>
 </head>
 <body>

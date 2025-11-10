@@ -8,8 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $lname = $_POST['LastName'];
   $gender = $_POST['Gender'];
   $salary = $_POST['Salary'];
+  $pst = $_POST['PstID'];
 
-  // Handle file upload
   $photo = '';
   if (!empty($_FILES['photo']['name'])) {
     $uploadDir = 'uploads/';
@@ -18,9 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     move_uploaded_file($_FILES['photo']['tmp_name'], $photo);
   }
 
-  // Insert only existing columns
-  $sql = "INSERT INTO Employee (FirstName, LastName, Gender, Salary, Photo)
-          VALUES ('$fname', '$lname', '$gender', '$salary', '$photo')";
+  $sql = "INSERT INTO Employee (FirstName, LastName, Gender, Salary, PstID, Photo)
+          VALUES ('$fname', '$lname', '$gender', '$salary', '$pst', '$photo')";
   $conn->query($sql);
   header('Location: employees.php');
   exit;
@@ -30,16 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
   <style>
-    /* === GLOBAL === */
 body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: #f5f6fa;
-  color: #2c3e50;
+  font-family: "Poppins", sans-serif;
+  background: #eef2f7;
+  color: #1e293b;
   display: flex;
 }
 
-/* === SIDEBAR === */
 .sidebar {
   width: 230px;
   background: #1e293b;
@@ -85,19 +82,17 @@ body {
   border-left: 4px solid #93c5fd;
 }
 
-/* === MAIN === */
 .main {
   margin-left: 230px;
-  padding: 30px 40px;
+  padding: 40px;
   width: calc(100% - 230px);
 }
 
-/* === HEADER === */
 .header {
   background: #fff;
   border-bottom: 2px solid #e5e7eb;
-  padding: 12px 20px;
-  border-radius: 8px;
+  padding: 15px 25px;
+  border-radius: 10px;
   margin-bottom: 25px;
   display: flex;
   justify-content: space-between;
@@ -106,28 +101,25 @@ body {
 
 .header h1 {
   font-size: 22px;
-  color: #1e3a8a;
+  color: #1e40af;
   margin: 0;
 }
 
-/* === CONTENT === */
 .content {
   background: #fff;
   border-radius: 12px;
-  padding: 25px 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 }
 
-/* === PAGE TITLE === */
 .content h3 {
   color: #1e3a8a;
-  border-left: 4px solid #2563eb;
-  padding-left: 10px;
+  border-left: 5px solid #2563eb;
+  padding-left: 12px;
   margin-bottom: 25px;
   font-size: 22px;
 }
 
-/* === FORM === */
 form {
   display: flex;
   flex-direction: column;
@@ -144,37 +136,36 @@ form h3 {
   padding-bottom: 5px;
 }
 
-form label {
+label {
   font-weight: 500;
-  color: #374151;
+  color: #334155;
   margin-top: 5px;
 }
 
-form input[type="text"],
-form input[type="number"],
-form input[type="file"],
-form select {
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select {
   padding: 10px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
   font-size: 15px;
   transition: 0.2s;
 }
 
-form input:focus,
-form select:focus {
+input:focus,
+select:focus {
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
-/* === BUTTON === */
-form button {
+button {
   margin-top: 15px;
   background: #2563eb;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 10px 16px;
   font-size: 15px;
   cursor: pointer;
@@ -182,11 +173,11 @@ form button {
   width: fit-content;
 }
 
-form button:hover {
+button:hover {
   background: #1e40af;
+  transform: translateY(-1px);
 }
 
-/* === RESPONSIVE === */
 @media (max-width: 768px) {
   .sidebar {
     display: none;
@@ -202,7 +193,6 @@ form button:hover {
     width: 100%;
   }
 }
-
   </style>
 </head>
 <body>
@@ -229,6 +219,17 @@ form button:hover {
 
     <label>Salary ($):</label>
     <input type="number" name="Salary" min="0" required>
+
+    <label>Position:</label>
+    <select name="PstID" required>
+      <option value="">-- Select Position --</option>
+      <?php
+      $pos = $conn->query("SELECT * FROM Position ORDER BY PostName ASC");
+      while ($p = $pos->fetch_assoc()) {
+        echo "<option value='{$p['PstID']}'>{$p['PostName']}</option>";
+      }
+      ?>
+    </select>
 
     <h3>Profile Photo</h3>
     <label>Upload Photo:</label>
